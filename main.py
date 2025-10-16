@@ -35,7 +35,15 @@ def main():
         pygame.display.flip()
         clock.tick(FPS)
 
+        # Check for game over and replay
+        result = engine.check_game_over()
+        if result is False:  # Player chose to exit
+            running = False
+        # If result is None → game continues, do nothing
+        # If result is True → replay selected, game continues automatically
+
     pygame.quit()
+
 
 if __name__ == "__main__":
     main()
